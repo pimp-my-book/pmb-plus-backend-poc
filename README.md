@@ -1,129 +1,61 @@
-# Serverless Node.js Starter
+# Serverless GraphQL NodeJS Starter
 
-A Serverless starter that adds ES7 syntax, serverless-offline, environment variables, and unit test support. Part of the [Serverless Stack](http://serverless-stack.com) guide.
+This is a basic boilerplate to kitstart your Serverless GraphQL projects with AWS Lambda. 
 
-[Serverless Node.js Starter](https://github.com/AnomalyInnovations/serverless-nodejs-starter) uses the [serverless-webpack](https://github.com/serverless-heaven/serverless-webpack) plugin, [Babel](https://babeljs.io), [serverless-offline](https://github.com/dherault/serverless-offline), and [Jest](https://facebook.github.io/jest/). It supports:
+It is powered by [`Apollo-Server-Lambda`](https://github.com/apollographql/apollo-server/tree/master/packages/apollo-server-lambda) and uses the [Serverless Framework](https://serverless.com/) to deploy it to AWS.
 
-- **ES7 syntax in your handler functions**
-  - Use `import` and `export`
-- **Package your functions using Webpack**
-- **Run API Gateway locally**
-  - Use `serverless offline start`
-- **Support for unit tests**
-  - Run `npm test` to run your tests
-- **Sourcemaps for proper error messages**
-  - Error message show the correct line numbers
-  - Works in production with CloudWatch
-- **Automatic support for multiple handler files**
-  - No need to add a new entry to your `webpack.config.js`
-- **Add environment variables for your stages**
+This is hugely inspired by the starter that [Anomaly Innovations](https://github.com/AnomalyInnovations/serverless-nodejs-starter )created. The project was cloned from it. 
 
----
+## Prerequistes 
 
-### Demo
+* [An AWS Account](https://aws.amazon.com/)
+* [A configured AWS CLI](https://serverless.com/framework/docs/providers/aws/guide/credentials/)
+* [Serverless Framework installed on your machine](https://serverless.com/framework/docs/providers/aws/guide/installation/)
+* [NodeJS](nodejs.org) 
 
-A demo version of this service is hosted on AWS - [`https://z6pv80ao4l.execute-api.us-east-1.amazonaws.com/dev/hello`](https://z6pv80ao4l.execute-api.us-east-1.amazonaws.com/dev/hello)
+Note this project uses [Yarn](https://yarnpkg.com). 
 
-And here is the ES7 source behind it
+## How to get started
 
-``` javascript
-export const hello = async (event, context) => {
-  return {
-    statusCode: 200,
-    body: JSON.stringify({
-      message: `Go Serverless v1.0! ${(await message({ time: 1, copy: 'Your function executed successfully!'}))}`,
-      input: event,
-    }),
-  };
-};
+First clone the repo:
 
-const message = ({ time, ...rest }) => new Promise((resolve, reject) =>
-  setTimeout(() => {
-    resolve(`${rest.copy} (with a delay)`);
-  }, time * 1000)
-);
+```
+$ serverless install --url https://github.com/pimp-my-book/serverless-graphql-nodejs-starter --name project-name
 ```
 
-### Requirements
+Move into the project folder:
 
-- [Install the Serverless Framework](https://serverless.com/framework/docs/providers/aws/guide/installation/)
-- [Configure your AWS CLI](https://serverless.com/framework/docs/providers/aws/guide/credentials/)
-
-### Installation
-
-To create a new Serverless project.
-
-``` bash
-$ serverless install --url https://github.com/AnomalyInnovations/serverless-nodejs-starter --name my-project
+```
+$ cd project-name
 ```
 
-Enter the new directory
+Then Install all its dependancies:
 
-``` bash
-$ cd my-project
+```
+$ yarn install
 ```
 
-Install the Node.js packages
+Then you should be able to invoke the Lambda locally:
 
-``` bash
-$ npm install
+```
+$ yarn offline
 ```
 
-### Usage
+To deploy to AWS run the following command:
 
-To run unit tests on your local
-
-``` bash
-$ npm test
+```
+$ yarn deploy
 ```
 
-To run a function on your local
+This should be a good start to be able to move on and do whatever you gotta do meet business requirements.  
 
-``` bash
-$ serverless invoke local --function hello
-```
 
-To simulate API Gateway locally using [serverless-offline](https://github.com/dherault/serverless-offline)
+### How To Link Other AWS Services
 
-``` bash
-$ serverless offline start
-```
+#### DynamoDB
+#### Cognito
 
-Run your tests
 
-``` bash
-$ npm test
-```
+## Contributing
 
-We use Jest to run our tests. You can read more about setting up your tests [here](https://facebook.github.io/jest/docs/en/getting-started.html#content).
-
-Deploy your project
-
-``` bash
-$ serverless deploy
-```
-
-Deploy a single function
-
-``` bash
-$ serverless deploy function --function hello
-```
-
-To add another function as a new file to your project, simply add the new file and add the reference to `serverless.yml`. The `webpack.config.js` automatically handles functions in different files.
-
-To add environment variables to your project
-
-1. Rename `env.example` to `env.yml`.
-2. Add environment variables for the various stages to `env.yml`.
-3. Uncomment `environment: ${file(env.yml):${self:provider.stage}}` in the `serverless.yml`.
-4. Make sure to not commit your `env.yml`.
-
-### Support
-
-- Send us an [email](mailto:contact@anoma.ly) if you have any questions
-- Open a [new issue](https://github.com/AnomalyInnovations/serverless-nodejs-starter/issues/new) if you've found a bug or have some suggestions.
-- Or submit a pull request!
-
-### Maintainers
-
-Serverless Node.js Starter is maintained by Frank Wang ([@fanjiewang](https://twitter.com/fanjiewang)) & Jay V ([@jayair](https://twitter.com/jayair)). [**Subscribe to our newsletter**](http://eepurl.com/cEaBlf) for updates. Send us an [email](mailto:contact@anoma.ly) if you have any questions.
+Contributions are most welcome!!

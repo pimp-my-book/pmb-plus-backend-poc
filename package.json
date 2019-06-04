@@ -1,16 +1,18 @@
 {
-  "name": "pmb-plus-backend-poc",
+  "name": "serverless-graphql-nodejs-starter",
   "version": "1.1.0",
-  "description": "A Node.js starter for the Serverless Framework with async/await and unit test support",
+  "description": "A GraphQL Node.js starter for the Serverless Framework with async/await and unit test support",
   "main": "handler.js",
   "scripts": {
+    "offline": "sls offline",
+    "deploy": "sls deploy",
     "test": "jest"
   },
   "author": "",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/AnomalyInnovations/serverless-nodejs-starter.git"
+    "url": "https://github.com/pimp-my-book/serverless-graphql-nodejs-starter"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
@@ -26,7 +28,9 @@
     "webpack-node-externals": "^1.6.0"
   },
   "dependencies": {
+    "apollo-server-lambda": "^2.5.0",
     "babel-runtime": "^6.26.0",
+    "graphql": "^14.3.0",
     "source-map-support": "^0.4.18"
   }
 }
