@@ -1,5 +1,5 @@
 import {hello} from "./Query";
-impoer {createBook} from "./Mutation";
+import {createBook} from "./Mutation";
 
 export const resolvers = {
     Query: {
