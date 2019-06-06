@@ -11,9 +11,9 @@ export const createBook = async (args, context) => {
         const {Book} = await connectToDatabase()
         const book = await Book.create(args.title, args.author, args.ISBN)
         return {
-            book
+            title: args.title,
 
-        }
+        };
     } catch(error){
         return {
             error
