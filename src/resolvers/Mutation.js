@@ -1,4 +1,4 @@
-const connectToDatabase = require('./db')
+const connectToDatabase = require('../db')
 
 function HTTPError (statusCode, message){
     const error = new Error(message)
