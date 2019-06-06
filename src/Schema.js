@@ -1,6 +1,7 @@
 const schema = `
 
 type Book {
+    ID: Int!
     title: String!
     author: String!
     ISBN: String!
