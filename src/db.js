@@ -12,8 +12,8 @@ const sequelize = new Sequelize(
     }
 )
 
-const Note = NoteModel(sequelize, Sequelize)
-const Models = {Note}
+const Book = BookModel(sequelize, Sequelize)
+const Models = {Book}
 
 const connection = {}
 
