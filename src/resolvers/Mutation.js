@@ -14,6 +14,10 @@ export const createBook = async (args, context) => {
             book
 
         }
+    } catch(error){
+        return {
+            error
+        }
     }
-    return "book mut"
+    
 }
