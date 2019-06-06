@@ -6,6 +6,14 @@ function HTTPError (statusCode, message){
     return error
 }
 
-export const createBook = (args, context) => {
+export const createBook = async (args, context) => {
+    try{
+        const {Book} = await connectToDatabase()
+        const book = await Book.create(args.title, args.author, args.ISBN)
+        return {
+            book
+
+        }
+    }
     return "book mut"
 }
