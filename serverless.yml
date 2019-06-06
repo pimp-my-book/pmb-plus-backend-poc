@@ -14,12 +14,21 @@ custom:
     includeModules: true
   serverless-offline:
     port: 4000
+  secrets: ${file(secrets.json)}
 
 provider:
   name: aws
   runtime: nodejs8.10
   stage: dev
   region: us-east-1
+  environment:
+    NODE_ENV: ${self:custom.secrets.NODE_ENV}
+    DB_NAME: ${self:custom.secrets.DB_NAME}
+    DB_USER: ${self:custom.secrets.DB_USER}
+    DB_PASSWORD: ${self:custom.secrets.DB_PASSWORD}
+    DB_HOST: ${self:custom.secerts.DB_HOST}
+    DB_PORT: ${self:custom.secrets.DB_PORT}
+  
   # To load environment variables externally
   # rename env.example to env.yml and uncomment
   # the following line. Also, make sure to not
