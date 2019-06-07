@@ -8,16 +8,16 @@ function HTTPError (statusCode, message){
 
 export const createBook = async (args, context) => {
     try{
+        console.log("heello1")
+        console.log(await connectToDatabase())
         const {Book} = await connectToDatabase()
-        const book = await Book.create(args)
-        console.log(book)
-        return {
-             book
-        };
+        console.log("heello2")
+        const book = await Book.create(args.title, args.author, args.ISBN)
+        console.log("heello3")
+        return book;
     } catch(error){
-        return {
-            error
-        }
+        return  console.log(error)
+        
     }
     
 }

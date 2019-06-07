@@ -2,14 +2,24 @@ const Sequelize = require('sequelize')
 const BookModel = require('./models/Book')
 
 const sequelize = new Sequelize(
-    process.env.DB_NAME,
-    process.env.DB_USER,
-    process.env.DB_PASSWORD,
+    'pmbpluspoc',
+     'root',
+    '6lQ0L%6J2fttg6',
     {
         dialect: 'mysql',
-        host: process.env.DB_HOST,
-        port: process.env.DB_PORT
-    }
+        dialectOptions: {connectTimeout: 6000000},
+        timeout: 60000,
+        host: "pmbpluspoc.cluster-cnzzwx7w7f5y.us-east-1.rds.amazonaws.com",
+        port: "3306",
+        pool: {
+            max: 10,
+    min: 0,
+    acquire: 30000,
+    idle: 100000
+        }
+    },
+
+    
 )
 
 const Book = BookModel(sequelize, Sequelize)
