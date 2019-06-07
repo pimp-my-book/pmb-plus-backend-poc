@@ -9,10 +9,10 @@ function HTTPError (statusCode, message){
 export const createBook = async (args, context) => {
     try{
         const {Book} = await connectToDatabase()
-        const book = await Book.create(args.title, args.author, args.ISBN)
+        const book = await Book.create(args)
+        console.log(book)
         return {
-            title: args.title,
-
+             book
         };
     } catch(error){
         return {

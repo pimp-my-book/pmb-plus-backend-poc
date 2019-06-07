@@ -50,7 +50,7 @@ functions:
       SLS_DEBUG: true
     events:
       - http:
-          path: graphql
+          path: Graphql
           method: post 
           cors: true 
           integration: lambda-proxy
