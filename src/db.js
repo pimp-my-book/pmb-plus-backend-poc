@@ -2,7 +2,7 @@ const Sequelize = require('sequelize')
 const BookModel = require('./models/Book')
 
 const sequelize = new Sequelize(
-    'pmbplustest',
+    'testdb',
      'root2',
     'G*o62%LhZFrvnR',
     {
@@ -12,7 +12,7 @@ const sequelize = new Sequelize(
             ssl: 'Amazon RDS'
             },
         timeout: 30000,
-        host: "pmbplustest.cluster-cnzzwx7w7f5y.us-east-1.rds.amazonaws.com",
+        host: "pmbplustest.cnzzwx7w7f5y.us-east-1.rds.amazonaws.com",
         port: "3306",
         pool: {
             max: 5,
