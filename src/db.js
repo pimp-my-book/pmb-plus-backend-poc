@@ -1,6 +1,6 @@
-const Sequelize = require('sequelize')
-const BookModel = require('./models/Book')
 
+import {Sequelize} from 'sequelize'
+import BookModel from './models/Book'
 const sequelize = new Sequelize(
     'testdb',
      'root2',

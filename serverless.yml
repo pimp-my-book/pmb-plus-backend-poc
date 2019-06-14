@@ -1,6 +1,6 @@
 # NOTE: update this with your service name
 service: serverless-graphql-nodejs-starter
-
+frameworkVersion: "1.35.1"
 # Use the serverless-webpack plugin to transpile ES6
 plugins:
   - serverless-webpack
@@ -46,7 +46,7 @@ provider:
 
 functions:
   graphql:
-    handler: src/Graphql.graphqlHandler
+    handler: src/graphql.graphqlHandler
     environment:
       SLS_DEBUG: true
     events:
