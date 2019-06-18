@@ -18,7 +18,7 @@ module.exports = {
     // Turn off size warnings for entry points
     hints: false
   },
-  entry: "./src/graphql.js",
+  entry: "src/graphql.js",
   output: {
    libraryTarget: "commonjs2",
    path: path.join(__dirname,"webpack"),
