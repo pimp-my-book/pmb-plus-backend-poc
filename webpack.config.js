@@ -18,7 +18,11 @@ module.exports = {
     // Turn off size warnings for entry points
     hints: false
   },
-  entry: ['./src/graphql.js'],
+  output: {
+   libraryTarget: "commonjs2",
+   path: path.join(__dirname,"webpack"),
+   filename: "src/graphql.js"
+  },
   // Run babel on all .js files and skip those in node_modules
   module: {
     rules: [
