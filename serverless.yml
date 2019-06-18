@@ -45,8 +45,8 @@ provider:
   #environment: ${file(env.yml):${self:provider.stage}}
 
 functions:
-  Graphql:
-    handler: src/Graphql.graphqlHandler
+  graphql:
+    handler: src/graphql.graphqlHandler
     environment:
       SLS_DEBUG: true
     events:
