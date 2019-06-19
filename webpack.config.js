@@ -2,7 +2,7 @@ const slsw = require("serverless-webpack");
 const nodeExternals = require("webpack-node-externals");
 
 module.exports = {
-  entry: ['src/graphql.js'],
+  entry: slsw.lib.entries,
   target: "node",
   // Generate sourcemaps for proper error messages
   devtool: 'source-map',
@@ -25,6 +25,7 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
+        use: ['imports-loader?graphql'],
         loader: "babel-loader",
         include: __dirname,
         exclude: /node_modules/
