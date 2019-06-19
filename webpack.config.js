@@ -25,7 +25,6 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        use: ['imports-loader?graphql'],
         loader: "babel-loader",
         include: __dirname,
         exclude: /node_modules/
