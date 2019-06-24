@@ -31,7 +31,7 @@ provider:
     DB_PORT: ${self:custom.secrets.DB_PORT}
   vpc:
     securityGroupIds:
-      - ${self:custom.secrets.SECURITY_GROUP_ID}
+      - sg-bf84a7f4
     subnetIds:
       - ${self:custom.secrets.SUBNET1_ID}
       - ${self:custom.secrets.SUBNET2_ID}
