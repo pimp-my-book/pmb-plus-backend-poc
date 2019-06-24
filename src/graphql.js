@@ -8,9 +8,11 @@ const server = new ApolloServer({
     resolvers: resolvers,
     formatError: error => {
 		return error;
+		console.log(error)
 	},
 	formatResponse: response => {
 		return response;
+		console.log(response)
 	},
 	context:  ({event,context}) => ({
 		headers: event.headers,
