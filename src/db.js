@@ -8,17 +8,17 @@ const sequelize = new Sequelize(
     {
         dialect: 'mysql',
         dialectOptions: {
-            connectTimeout: 30000,
+            connectTimeout: 300,
             ssl: 'Amazon RDS'
             },
-        timeout: 30000,
+        timeout: 300,
         host: "pmbplustest.cnzzwx7w7f5y.us-east-1.rds.amazonaws.com",
         port: "3306",
         pool: {
             max: 5,
     min: 1,
-    acquire: 30000,
-    idle: 30000
+    acquire: 300,
+    idle: 300
         },
         
     },
