@@ -22,7 +22,7 @@ provider:
   name: aws
   runtime: nodejs8.10
   stage: dev
-  timeout: 100
+  timeout: 30
   region: us-east-1
   environment:
     NODE_ENV: ${self:custom.secrets.NODE_ENV}
