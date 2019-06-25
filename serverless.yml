@@ -12,6 +12,8 @@ custom:
   webpack:
     webpackConfig: ./webpack.config.js
     includeModules: true
+    forceInclude:
+      - mysql2
   serverless-offline:
     port: 4000
   secrets: ${file(secrets.json)}
