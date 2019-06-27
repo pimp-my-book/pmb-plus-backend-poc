@@ -15,9 +15,9 @@ Resources:
           KeyType: RANGE
       GlobalSecondaryIndexes:
         - AttributeName: productType
-          AttributeType: S
+          KeyType: HASH
         - AttributeName: orderDate
-          AttributeType: S
+          KeyType: HASH
 
       # Set the capacity based on the stage
       ProvisionedThroughput:
