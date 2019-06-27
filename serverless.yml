@@ -77,3 +77,5 @@ functions:
           cors: true
           integration: lambda-proxy
     
+resources:
+  - ${file(resources/MarketPlaceDB.yml)}
