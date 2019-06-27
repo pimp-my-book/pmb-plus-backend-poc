@@ -18,7 +18,7 @@ export const createBook = async (args, context) => {
 
         return {
             objectId: params.Item.objectId,
-            objectName: args.title,
+            title: params.Item.objectName,
             author: args.author,
             ISBN: args.ISBN
         }
