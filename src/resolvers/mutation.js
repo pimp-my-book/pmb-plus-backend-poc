@@ -8,7 +8,8 @@ export const createBook = async (args, context) => {
         Item: {
             objectId: uuid.v1(),
             objectName: args.title,
-            author: args.author
+            author: args.author,
+            ISBN: args.ISBN
         }
     }
 
@@ -18,7 +19,8 @@ export const createBook = async (args, context) => {
         return {
             objectId: params.Item.objectId,
             objectName: args.title,
-            author: args.author
+            author: args.author,
+            ISBN: args.ISBN
         }
     } catch(e){
         return e
