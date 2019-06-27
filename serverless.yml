@@ -1,5 +1,5 @@
 # NOTE: update this with your service name
-service: serverless-graphql-nodejs-starter
+service: pmb-plus-backend-poc
 #frameworkVersion: "1.35.1"
 # Use the serverless-webpack plugin to transpile ES6
 plugins:
@@ -20,32 +20,19 @@ custom:
   webpack:
     webpackConfig: ./webpack.config.js
     includeModules: true
-    
   serverless-offline:
     port: 4000
+  environment: ${file(env.yml):${self:custom.stage}, file(env.yml):default}
   
 
 provider:
   name: aws
   runtime: nodejs8.10
   stage: dev
-  timeout: 30
   region: us-east-1
   environment:
-    NODE_ENV: ${self:custom.secrets.NODE_ENV}
-    DB_NAME: ${self:custom.secrets.DB_NAME}
-    DB_USER: ${self:custom.secrets.DB_USER}
-    DB_PASSWORD: ${self:custom.secrets.DB_PASSWORD}
-    DB_HOST: ${self:custom.secrets.DB_HOST}
-    DB_PORT: ${self:custom.secrets.DB_PORT}
-  vpc:
-    securityGroupIds:
-      - sg-bf84a7f4
-    subnetIds:
-      - subnet-bcef99f6
-      - subnet-2490611a
-      - subnet-71832016
-      - subnet-020dae5e
+    MarketPlaceDB: ${self:custom.MarketPlaceDB}
+  
   # To load environment variables externally
   # rename env.example to env.yml and uncomment
   # the following line. Also, make sure to not
