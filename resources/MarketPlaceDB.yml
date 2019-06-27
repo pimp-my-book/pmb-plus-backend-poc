@@ -1,0 +1,25 @@
+Resources:
+  MarketPlaceDB:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: ${self:custom.MarketPlaceDB}
+      AttributeDefinitions:
+        - AttributeName: objectId
+          AttributeType: S
+        - AttributeName: objectName
+          AttributeType: S
+      KeySchema:
+        - AttributeName: objectId
+          KeyType: HASH
+        - AttributeName: objectName
+          KeyType: RANGE
+      GlobalSecondaryIndexes:
+        - AttributeName: productType
+          AttributeType: S
+        - AttributeName: orderDate
+          AttributeType: S
+
+      # Set the capacity based on the stage
+      ProvisionedThroughput:
+        ReadCapacityUnits: ${self:custom.tableThroughput}
+        WriteCapacityUnits: ${self:custom.tableThroughput}
