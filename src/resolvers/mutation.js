@@ -11,5 +11,17 @@ export const createBook = async (args, context) => {
             author: args.author
         }
     }
+
+    try{
+        await dynamoDBlib.call("put", params);
+
+        return {
+            objectId: params.Item.objectId,
+            objectName: args.title,
+            author: args.author
+        }
+    } catch(e){
+        return e
+    }
     
 }
