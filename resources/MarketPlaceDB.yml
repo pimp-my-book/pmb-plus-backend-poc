@@ -20,6 +20,8 @@ Resources:
               KeyType: HASH
             - AttributeName: orderDate
               KeyType: HASH
+          Projection:
+            ProjectionType: "KEYS_ONLY"
 
       # Set the capacity based on the stage
       ProvisionedThroughput:
