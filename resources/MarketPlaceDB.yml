@@ -14,10 +14,12 @@ Resources:
         - AttributeName: objectName
           KeyType: RANGE
       GlobalSecondaryIndexes:
-        - AttributeName: productType
-          KeyType: HASH
-        - AttributeName: orderDate
-          KeyType: HASH
+        - IndexName: GSI
+          KeySchema:
+            - AttributeName: productType
+              KeyType: HASH
+            - AttributeName: orderDate
+              KeyType: HASH
 
       # Set the capacity based on the stage
       ProvisionedThroughput:
