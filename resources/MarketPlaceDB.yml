@@ -8,6 +8,11 @@ Resources:
           AttributeType: S
         - AttributeName: objectName
           AttributeType: S
+        - AttributeName: productType
+          AttributeType: S
+        - AttributeName: orderDate
+          AttributeType: S
+
       KeySchema:
         - AttributeName: objectId
           KeyType: HASH
