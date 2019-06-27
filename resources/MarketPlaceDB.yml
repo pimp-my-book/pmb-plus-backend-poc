@@ -27,7 +27,9 @@ Resources:
               KeyType: HASH
           Projection:
             ProjectionType: "KEYS_ONLY"
-
+          ProvisionedThroughput:
+            ReadCapacityUnits: ${self:custom.tableThroughput}
+            WriteCapacityUnits: ${self:custom.tableThroughput}
       # Set the capacity based on the stage
       ProvisionedThroughput:
         ReadCapacityUnits: ${self:custom.tableThroughput}
