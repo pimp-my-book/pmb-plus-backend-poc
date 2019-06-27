@@ -24,7 +24,7 @@ Resources:
             - AttributeName: productType
               KeyType: HASH
             - AttributeName: orderDate
-              KeyType: HASH
+              KeyType: RANGE
           Projection:
             ProjectionType: "KEYS_ONLY"
           ProvisionedThroughput:
