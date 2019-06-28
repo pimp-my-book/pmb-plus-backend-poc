@@ -80,6 +80,26 @@ interface Product {
 }
 
 """
+Add Book input
+
+"""
+
+input addBookInput {
+    productName: String!
+    productDescription: String!
+    dateUploaded: String!
+    price: String!
+    vendor: String!
+    productType: String!
+    title: String!
+    author: String!
+    ISBN: String!
+    grade: String!
+    courses: [String]!
+    univeristies: [String]!
+}
+
+"""
 A book type that is an extension of a product
 """
 type Book implements Product {
@@ -102,6 +122,7 @@ type Mutation {
     addUniversity(name: String!, shortName: String!): Universities
     addCourse(name:String!, shortName: String!, university: String!): Courses
     createBook(title: String!, author: String!, ISBN: String!): Book
+    addProduct(input: addBookInput!) : Book
 }
 
 """
