@@ -11,7 +11,7 @@ interface Product {
     productDescription: String!
     dateUploaded: String!
     price: String!
-
+    productType: String!
 }
 
 
