@@ -15,7 +15,14 @@ type Universities {
 }
 
 
+"""
+addUniversityInput
+"""
 
+input addUniversityInput{
+    name: String!
+    shortName: String!
+}
 
 
 """
@@ -129,7 +136,7 @@ type Book implements Product {
 }
 
 type Mutation {
-    addUniversity(name: String!, shortName: String!): Universities
+    addUniversity(input: addUniversityInput!): Universities
     addCourse(input: addCoursesInput!): Courses
     addBook(input: addBookInput!) : Book
 }
