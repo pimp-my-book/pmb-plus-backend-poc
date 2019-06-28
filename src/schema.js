@@ -8,7 +8,7 @@ const schema = `
 Universisties
 """
 
-type Universisties {
+type Universities {
     ID: Int!
     name: String!
     shortName: String!
@@ -26,7 +26,7 @@ type Courses {
     ID: Int!
     name: String!
     shortName: String!
-    univeristy: Universisties!
+    univeristy: Universities!
 }
 
 
@@ -48,7 +48,7 @@ type BookList {
     title: String!
     author: String!
     ISBN: String!
-
+    course: Courses!
 }
 
 """
@@ -95,10 +95,12 @@ type Book implements Product {
     ISBN: String!
     grade: String!
     courses: [Courses]!
-    univeristies: [Univeristies]!
+    univeristies: [Universities]!
 }
 
 type Mutation {
+    addUniversity(name: String!, shortName: String!): Universities
+    
     createBook(title: String!, author: String!, ISBN: String!): Book
 }
 
