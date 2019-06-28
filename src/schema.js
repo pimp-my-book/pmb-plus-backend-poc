@@ -1,4 +1,19 @@
+//This is the schema file for the GraphQL API.
+
 const schema = `
+
+"""
+Product interface
+"""
+interface Product {
+    ID: Int!
+    productName: String!
+    productDescription: String!
+    dateUploaded: String!
+    price: String!
+
+}
+
 
 type Book {
     ID: Int!
