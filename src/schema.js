@@ -100,7 +100,7 @@ type Book implements Product {
 
 type Mutation {
     addUniversity(name: String!, shortName: String!): Universities
-    
+    addCourse(name:String!, shortName: String!, university: String!): Courses
     createBook(title: String!, author: String!, ISBN: String!): Book
 }
 
