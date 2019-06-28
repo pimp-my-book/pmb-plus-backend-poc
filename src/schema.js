@@ -2,12 +2,21 @@
 
 const schema = `
 
+"""
+Buying List Type
+"""
+
+type BuyingList{
+    ID: Int!
+    store: String!
+    books:[Book]!
+}
+
+
 
 """
 Vendor Type
 """
-
-
 
 type Vendor {
     ID: Int!
