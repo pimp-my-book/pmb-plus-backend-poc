@@ -31,6 +31,16 @@ type Courses {
 
 
 """
+addCoursesInput
+"""
+input addCoursesInput {
+    ID: Int!
+    name: String!
+    shortName: String!
+    univeristy: String!
+}
+
+"""
 Buying List Type
 """
 
@@ -120,9 +130,8 @@ type Book implements Product {
 
 type Mutation {
     addUniversity(name: String!, shortName: String!): Universities
-    addCourse(name:String!, shortName: String!, university: String!): Courses
-    createBook(title: String!, author: String!, ISBN: String!): Book
-    addProduct(input: addBookInput!) : Book
+    addCourse(input: addCoursesInput!): Courses
+    addBook(input: addBookInput!) : Book
 }
 
 """
