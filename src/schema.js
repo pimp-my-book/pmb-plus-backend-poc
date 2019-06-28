@@ -9,10 +9,19 @@ Buying List Type
 type BuyingList{
     ID: Int!
     store: String!
-    books:[Book]!
+    books:[BookList]!
 }
 
+"""
+Book List object to enter books into the buying list
+"""
 
+type BookList {
+    title: String!
+    author: String!
+    ISBN: String!
+    
+}
 
 """
 Vendor Type
@@ -56,6 +65,7 @@ type Book implements Product {
     title: String!
     author: String!
     ISBN: String!
+    grade: String!
 }
 
 type Mutation {
