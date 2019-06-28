@@ -2,6 +2,26 @@
 
 const schema = `
 
+
+
+"""
+Universisties
+"""
+
+type Universisties {
+    ID: Int!
+    name: String!
+    shortName: String!
+}
+
+
+
+
+
+"""
+Courses
+"""
+
 """
 Buying List Type
 """
