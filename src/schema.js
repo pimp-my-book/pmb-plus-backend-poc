@@ -2,6 +2,24 @@
 
 const schema = `
 
+
+"""
+Vendor Type
+"""
+
+
+
+type Vendor {
+    ID: Int!
+    vendorName: String!
+    vendorDescription: String!
+    vendorWebsite: String
+    vendorAddress: String!
+    vendorEmail: String!
+    inventory: [Product]!
+    buyingList: [BuyingList]!
+}
+
 """
 Product interface
 """
