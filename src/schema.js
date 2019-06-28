@@ -20,7 +20,7 @@ type BookList {
     title: String!
     author: String!
     ISBN: String!
-    
+
 }
 
 """
@@ -66,6 +66,8 @@ type Book implements Product {
     author: String!
     ISBN: String!
     grade: String!
+    courses: [Courses]!
+    univeristies: [Univeristies]!
 }
 
 type Mutation {
