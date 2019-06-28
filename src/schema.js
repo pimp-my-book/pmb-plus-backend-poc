@@ -22,6 +22,14 @@ type Universisties {
 Courses
 """
 
+type Courses {
+    ID: Int!
+    name: String!
+    shortName: String!
+    univeristy: Universisties!
+}
+
+
 """
 Buying List Type
 """
