@@ -63,5 +63,27 @@ export const addUniversity = async ({input: args}, context) => {
 
 //ADD DEGREE
 export const addDegree = async ({input: args}, context) => {
+    const params = {
+        TableName: process.env.MarketPlaceDB,
+        Item: {
+            objectId: `uni-${uuid.v1()}`,
+            objectName: "degree",
+            degreeName: args.degreeName,
+            courses: args.courses
+        }
 
+    }
+
+    try {
+        await dynamoDBlib.call("put", params);
+
+        return {
+            objectId: params.Item.objectId,
+            objectName: params.Item.objectName,
+            degreeName: args.degreeName,
+            courses: args.courses
+        }
+    } catch(e){
+           return e;
+    }
 }
