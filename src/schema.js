@@ -41,7 +41,7 @@ input addBookInput {
     
     productName: String!
     productDescription: String!
-    dateUploaded: String!
+    
     price: String!
     vendor: String!
     image: String!
