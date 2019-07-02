@@ -2,55 +2,98 @@
 
 const schema = `
 
-
-
-"""
-Universisties
-"""
-
-type Universities {
-    ID: Int!
-    name: String!
-    shortName: String!
-}
-
-
 """
 addUniversityInput
 """
-
 input addUniversityInput{
+    
     name: String!
     shortName: String!
+    degrees: String!
+    courses: String!
 }
-
-
-"""
-Courses
-"""
-
-type Courses {
-    ID: Int!
-    name: String!
-    shortName: String!
-    univeristy: Universities!
-}
-
 
 """
 addCoursesInput
 """
 input addCoursesInput {
+    
+    name: String!
+    shortName: String!
+    degrees: String!
+}
+
+
+"""
+addDegreeInput
+"""
+input addDegreeInput{
+    
+    degreeName: String!
+    courses: String!
+}
+
+"""
+Add Book input
+
+"""
+input addBookInput {
+    
+    productName: String!
+    productDescription: String!
+    dateUploaded: String!
+    price: String!
+    vendor: String!
+    image: String!
+    productType: String!
+    title: String!
+    author: String!
+    ISBN: String!
+    grade: String!
+    courses: [String]!
+    univeristies: [String]!
+}
+
+
+"""
+Degrees
+"""
+type Degree {
+    ID: Int!
+    degreeName: String!
+    courses: [Course]!
+}
+
+"""
+University
+"""
+type University {
     ID: Int!
     name: String!
     shortName: String!
-    univeristy: String!
+    degrees: [Degree]!
+    courses: [Course]!
 }
+
+
+
+
+"""
+Course
+"""
+type Course {
+    ID: Int!
+    name: String!
+    shortName: String!
+    degrees: [Degree]!
+}
+
+
+
 
 """
 Buying List Type
 """
-
 type BuyingList{
     ID: Int!
     store: String!
@@ -60,18 +103,18 @@ type BuyingList{
 """
 Book List object to enter books into the buying list
 """
-
 type BookList {
+    ID: String!
     title: String!
     author: String!
     ISBN: String!
-    course: Courses!
+    course: Course!
+    degree: Degree!
 }
 
 """
 Vendor Type
 """
-
 type Vendor {
     ID: Int!
     vendorName: String!
@@ -94,27 +137,11 @@ interface Product {
     price: String!
     productType: String!
     vendor: String!
+    image: String!
+    
 }
 
-"""
-Add Book input
 
-"""
-
-input addBookInput {
-    productName: String!
-    productDescription: String!
-    dateUploaded: String!
-    price: String!
-    vendor: String!
-    productType: String!
-    title: String!
-    author: String!
-    ISBN: String!
-    grade: String!
-    courses: [String]!
-    univeristies: [String]!
-}
 
 """
 A book type that is an extension of a product
@@ -126,18 +153,20 @@ type Book implements Product {
     dateUploaded: String!
     price: String!
     vendor: String!
+    image: String!
     productType: String!
     title: String!
     author: String!
     ISBN: String!
     grade: String!
-    courses: [Courses]!
-    univeristies: [Universities]!
+    courses: [Course]!
+    univeristies: [University]!
 }
 
 type Mutation {
-    addUniversity(input: addUniversityInput!): Universities
-    addCourse(input: addCoursesInput!): Courses
+    addUniversity(input: addUniversityInput!): University
+    addCourse(input: addCoursesInput!): Course
+    addDegree(input: addDegreeInput): Degree
     addBook(input: addBookInput!) : Book
 }
 
