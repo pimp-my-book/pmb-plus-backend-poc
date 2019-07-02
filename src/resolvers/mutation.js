@@ -3,14 +3,27 @@ import * as dynamoDBlib from "../../libs/dynamodb-lib";
 import uuid from "uuid";
 
 //ADD BOOK
-export const addBook = async (args, context) => {
+export const addBook = async ({input: args}, context) => {
     const params = {
         TableName: process.env.MarketPlaceDB,
         Item: {
-            objectId: uuid.v1(),
-            objectName: args.title,
+            objectId: `book-${uuid.v1()}`,
+            objectName: "book",
             author: args.author,
-            ISBN: args.ISBN
+            ISBN: args.ISBN,
+            productName: args.title,
+            productDescription: args.productDescription,
+            dateUploaded: args.dateUploaded,
+            price: args.price,
+            vendor: args.vendor,
+            image: args.image,
+            productType: "book",
+            title: args.title,
+            author: args.author,
+            
+            grade: args.grade,
+            courses: args.courses,
+            univeristies: args.univeristies,
         }
     }
 
@@ -19,9 +32,22 @@ export const addBook = async (args, context) => {
 
         return {
             objectId: params.Item.objectId,
-            title: params.Item.objectName,
+            objectName: params.Item.objectName,
             author: args.author,
-            ISBN: args.ISBN
+            ISBN: args.ISBN,
+            productName: args.title,
+            productDescription: args.productDescription,
+            dateUploaded: args.dateUploaded,
+            price: args.price,
+            vendor: args.vendor,
+            image: args.image,
+            productType: "book",
+            title: args.title,
+            author: args.author,
+            
+            grade: args.grade,
+            courses: args.courses,
+            univeristies: args.univeristies,
         }
     } catch(e){
         return e
@@ -116,3 +142,4 @@ export const addCourse = async ({input: args}, context) => {
            return e;
     }
 }
+
