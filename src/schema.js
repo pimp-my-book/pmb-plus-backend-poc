@@ -9,7 +9,7 @@ input addUniversityInput{
     
     universityName: String!
     shortName: String!
-    degrees: String!
+    degrees: [String]!
     courses: String!
 }
 
@@ -164,7 +164,11 @@ type Book implements Product {
 }
 
 type Mutation {
-    addUniversity(input: addUniversityInput!): University
+    addUniversity( 
+        universityName: String!
+        shortName: String!
+        degrees: String!
+        courses: String!): University
     addCourse(input: addCoursesInput!): Course
     addDegree(input: addDegreeInput): Degree
     addBook(input: addBookInput!) : Book
