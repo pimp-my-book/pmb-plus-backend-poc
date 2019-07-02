@@ -29,7 +29,7 @@ export const addBook = async (args, context) => {
 }
 
 
-export const addUniversity = async (args, context) => {
+export const addUniversity = async ({input: args}, context) => {
     const params = {
         TableName: process.env.MarketPlaceDB,
         Item: {
