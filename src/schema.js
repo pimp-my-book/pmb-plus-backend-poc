@@ -45,7 +45,7 @@ input addBookInput {
     price: String!
     vendor: String!
     image: String!
-    productType: String!
+    
     title: String!
     author: String!
     ISBN: String!
