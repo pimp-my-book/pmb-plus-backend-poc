@@ -1,5 +1,5 @@
 import {hello} from "./query";
-import {addUniversity, addDegree, objectName} from "./mutation";
+import {addUniversity, addDegree, addCourse} from "./mutation";
 
 export const resolvers = {
     Query: {
