@@ -1,7 +1,8 @@
+// List of all mutations
 import * as dynamoDBlib from "../../libs/dynamodb-lib";
 import uuid from "uuid";
 
-
+//ADD BOOK
 export const addBook = async (args, context) => {
     const params = {
         TableName: process.env.MarketPlaceDB,
@@ -28,7 +29,7 @@ export const addBook = async (args, context) => {
     
 }
 
-
+//ADD UNIVERSTY 
 export const addUniversity = async ({input: args}, context) => {
     const params = {
         TableName: process.env.MarketPlaceDB,
@@ -60,7 +61,7 @@ export const addUniversity = async ({input: args}, context) => {
     }
 } 
 
-
+//ADD DEGREE
 export const addDegree = async ({input: args}, context) => {
-    
+
 }
