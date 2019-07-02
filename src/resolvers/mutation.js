@@ -59,3 +59,8 @@ export const addUniversity = async ({input: args}, context) => {
         return e;
     }
 } 
+
+
+export const addDegree = async ({input: args}, context) => {
+    
+}
