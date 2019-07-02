@@ -169,7 +169,10 @@ type Mutation {
         shortName: String!
         degrees: String!
         courses: String!): University
-    addCourse(input: addCoursesInput!): Course
+    addCourse(
+        name: String!
+        shortName: String!
+        degrees: String!): Course
     addDegree(input: addDegreeInput): Degree
     addBook(input: addBookInput!) : Book
 }
