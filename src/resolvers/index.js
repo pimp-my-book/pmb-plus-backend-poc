@@ -1,5 +1,5 @@
 import {hello} from "./query";
-import {addUniversity, addDegree} from "./mutation";
+import {addUniversity, addDegree, objectName} from "./mutation";
 
 export const resolvers = {
     Query: {
@@ -7,7 +7,8 @@ export const resolvers = {
     },
     Mutation: {
         addUniversity: (root, {input: args}, context) => addUniversity({input: args}, context),
-        addDegree: (root, {input: args}, context) => addDegree({input: args}, context)
+        addDegree: (root, {input: args}, context) => addDegree({input: args}, context),
+        addCourse: (root, {input: args}, context) => addCourse({input: args}, context)
     }
         
 }
