@@ -176,7 +176,21 @@ type Mutation {
     addDegree(
         degreeName: String!
         courses: String!): Degree
-    addBook(input: addBookInput!) : Book
+    addBook(
+        productName: String!
+        productDescription: String!
+        dateUploaded: String!
+        price: String!
+        vendor: String!
+        image: String!
+        productType: String!
+        title: String!
+        author: String!
+        ISBN: String!
+        grade: String!
+        courses: String!
+        univeristies: String!
+    ) : Book
 }
 
 """
