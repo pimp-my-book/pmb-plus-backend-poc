@@ -166,9 +166,7 @@ type Book implements Product {
 type Mutation {
     addUniversity(input: addUniversityInput): University
     addCourse(input: addCoursesInput): Course
-    addDegree(
-        degreeName: String!
-        courses: String!): Degree
+    addDegree(input: addDegreeInput): Degree
     addBook(
         productName: String!
         productDescription: String!
