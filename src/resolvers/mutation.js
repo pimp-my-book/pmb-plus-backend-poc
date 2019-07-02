@@ -34,11 +34,12 @@ export const addUniversity = async (args, context) => {
         TableName: process.env.MarketPlaceDB,
         Item: {
             objectId: `uni-${uuid.v1()}`,
-            objectName: args.name,
+            objectName: "university",
+            name: args.name,
             shortName: args.shortName,
             degrees: args.degrees, 
             courses: args.courses
-        },
+        }
 
     }
 
@@ -48,8 +49,8 @@ export const addUniversity = async (args, context) => {
         await dynamoDBlib.call("put", params);
 
         return {
-            objectId: params.Item.objectId,
-            name: params.Item.objectName,
+            ID: params.Item.objectId,
+            name: args.name,
             shortName: args.shortName,
             degrees: args.degrees, 
             courses: args.courses

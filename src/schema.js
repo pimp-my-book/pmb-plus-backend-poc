@@ -7,7 +7,7 @@ addUniversityInput
 """
 input addUniversityInput{
     
-    name: String!
+    universityName: String!
     shortName: String!
     degrees: String!
     courses: String!
@@ -69,7 +69,7 @@ University
 """
 type University {
     ID: Int!
-    name: String!
+    universityName: String!
     shortName: String!
     degrees: [Degree]!
     courses: [Course]!
