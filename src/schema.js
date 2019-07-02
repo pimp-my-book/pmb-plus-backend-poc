@@ -20,7 +20,7 @@ input addCoursesInput {
     
     name: String!
     shortName: String!
-    degrees: String!
+    degrees: [String]!
 }
 
 
@@ -165,10 +165,7 @@ type Book implements Product {
 
 type Mutation {
     addUniversity(input: addUniversityInput): University
-    addCourse(
-        name: String!
-        shortName: String!
-        degrees: String!): Course
+    addCourse(input: addCoursesInput): Course
     addDegree(
         degreeName: String!
         courses: String!): Degree
