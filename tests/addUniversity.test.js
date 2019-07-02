@@ -1,0 +1,6 @@
+/*
+This unit test validates that a university is successeffully added
+
+
+
+*/
