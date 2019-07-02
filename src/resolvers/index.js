@@ -6,6 +6,8 @@ export const resolvers = {
         hello: (root, args, context) => hello(args, context)
     },
     Mutation: {
-        addUniversity: (root, {input: args}, context) => addUniversity({input: args}, context)
+        addUniversity: (root, {input: args}, context) => addUniversity({input: args}, context),
+        addDegree: (root, {input: args}, context) => addDegree({input: args}, context)
     }
+        
 }
