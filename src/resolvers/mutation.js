@@ -2,7 +2,7 @@ import * as dynamoDBlib from "../../libs/dynamodb-lib";
 import uuid from "uuid";
 
 
-export const createBook = async (args, context) => {
+export const addBook = async (args, context) => {
     const params = {
         TableName: process.env.MarketPlaceDB,
         Item: {
@@ -27,3 +27,34 @@ export const createBook = async (args, context) => {
     }
     
 }
+
+
+export const addUniversity = async (args, context) => {
+    const params = {
+        TableName: process.env.MarketPlaceDB,
+        Item: {
+            objectId: `uni-${uuid.v1()}`,
+            objectName: args.name,
+            shortName: args.shortName,
+            degrees: args.degrees, 
+            courses: args.courses
+        },
+
+    }
+
+    console.log(params)
+
+    try {
+        await dynamoDBlib.call("put", params);
+
+        return {
+            objectId: params.Item.objectId,
+            name: params.Item.objectName,
+            shortName: args.shortName,
+            degrees: args.degrees, 
+            courses: args.courses
+        } 
+    } catch(e){
+        return e;
+    }
+} 
