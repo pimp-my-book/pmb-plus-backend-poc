@@ -1,6 +1,7 @@
 // List of all mutations
 import * as dynamoDBlib from "../../libs/dynamodb-lib";
 import uuid from "uuid";
+import aws from "aws-sdk";
 
 //ADD BOOK
 export const addBook = async ({input: args}, context) => {
@@ -53,6 +54,35 @@ export const addBook = async ({input: args}, context) => {
         return e
     }
     
+}
+
+
+//Add books
+export const addBooks = async (args, context) => {
+    const s3 = new aws.S3({
+        signatureVersion: 'v4',
+        region: 'us-east-1'
+    });
+
+    const s3Params = {
+        Bucket: process.env.s3Bucket,
+        Key: args.fileName,
+        Expires: 60,
+        ContentType: args.fileType,
+        ACL: 'public-read'
+    };
+
+
+    const signedRequest = await s3.getSignedUrl('putObject', s3Params);
+    const url = `https://${s3Params.Bucket}.s3.amazonaws.com/${s3Params.Key}`
+    
+    console.log(signedRequest)
+
+    return{
+        signedRequest,
+        url
+    }
+
 }
 
 //ADD UNIVERSTY 
