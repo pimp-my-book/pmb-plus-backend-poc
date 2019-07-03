@@ -86,8 +86,9 @@ export const addBooks = async (args, context) => {
     */
     //const books = XLSX.utils.sheet_to_json(url);
     //const books = XLSX.read(url);
-
-    console.log(books.Sheets.Sheet1)
+ 
+    
+    //console.log(books.Sheets.Sheet1)
 
     return{
         signedRequest,
