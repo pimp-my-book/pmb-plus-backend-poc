@@ -65,7 +65,7 @@ export const addBooks = async (args, context) => {
     });
 
     const s3Params = {
-        Bucket: process.env.s3Bucket,
+        Bucket: "pmb-plus-backend-poc-dev-attachmentsbucket-z5ee6l5d2lx0",
         Key: args.fileName,
         Expires: 60,
         ContentType: args.fileType,
