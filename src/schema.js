@@ -94,7 +94,7 @@ type Course {
 """
 Buying List Type
 """
-type BuyingList{
+type BuyingList {
     ID: Int!
     store: String!
     books:[BookList]!
@@ -168,6 +168,7 @@ type Mutation {
     addCourse(input: addCoursesInput): Course
     addDegree(input: addDegreeInput): Degree
     addBook(input:addBookInput) : Book
+    addBooks(input: [addBookInput]): Book
 }
 
 """
