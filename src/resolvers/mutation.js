@@ -2,6 +2,7 @@
 import * as dynamoDBlib from "../../libs/dynamodb-lib";
 import uuid from "uuid";
 import aws from "aws-sdk";
+import XLSX from "xlsx";
 
 //ADD BOOK
 export const addBook = async ({input: args}, context) => {
@@ -77,6 +78,10 @@ export const addBooks = async (args, context) => {
     const url = `https://${s3Params.Bucket}.s3.amazonaws.com/${s3Params.Key}`
     
     console.log(signedRequest)
+
+
+    const books = XLSX.readFile(url);
+    console.log(books)
 
     return{
         signedRequest,
