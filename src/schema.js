@@ -163,12 +163,18 @@ type Book implements Product {
     univeristies: [University]!
 }
 
+
+type S3Payload {
+    signedRequest: String!,
+    url: Strign!
+}
+
 type Mutation {
     addUniversity(input: addUniversityInput): University
     addCourse(input: addCoursesInput): Course
     addDegree(input: addDegreeInput): Degree
     addBook(input:addBookInput) : Book
-    addBooks(input: [addBookInput]): Book
+    addBooks(fileName: String!, fileType: String!): S3Payload!
 }
 
 """
