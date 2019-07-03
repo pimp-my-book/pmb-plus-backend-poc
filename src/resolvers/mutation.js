@@ -79,9 +79,14 @@ export const addBooks = async (args, context) => {
     
     console.log(signedRequest)
 
-
-    const books = XLSX.readFile(url);
-    console.log(books)
+    /*
+      { SheetNames: [ 'Sheet1' ],
+  Sheets: { Sheet1: { A1: [Object], B1: [Object], '!ref': 'A1:B1' } }
+}
+    */
+    //const books = XLSX.utils.sheet_to_json(url);
+    const books = XLSX.read(url);
+    console.log(books.Sheets.Sheet1)
 
     return{
         signedRequest,
