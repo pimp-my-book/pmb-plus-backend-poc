@@ -166,7 +166,7 @@ type Book implements Product {
 
 type S3Payload {
     signedRequest: String!,
-    url: Strign!
+    url: String!
 }
 
 type Mutation {
