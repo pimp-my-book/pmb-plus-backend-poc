@@ -12,7 +12,7 @@ plugins:
 custom:
   stage: ${opt:stage, self:provider.stage}
   region: ${opt:region, self:provider.region}
-  MarketPlaceDB: ${self:custom.stage}-marketplace
+  MarketPlaceDB: ${self:custom.stage}-marketplace2
   tableThroughputs:
     prod: 5
     default: 2
