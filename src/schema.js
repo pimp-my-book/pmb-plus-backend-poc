@@ -169,6 +169,7 @@ type S3Payload {
     url: String!
 }
 
+
 type Mutation {
     addUniversity(input: addUniversityInput): University
     addCourse(input: addCoursesInput): Course
@@ -177,11 +178,13 @@ type Mutation {
     addBooks(fileName: String!, fileType: String!): S3Payload!
 }
 
-"""
-A hello world Query
-"""
+
 type Query {
      hello: String!
+     """ 
+     A query to get all the books a vendor has posted. 
+     """
+     getBooksByVendor(vendor:String!): [Book]
 }
 
 
