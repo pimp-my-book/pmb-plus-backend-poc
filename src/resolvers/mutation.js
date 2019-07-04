@@ -124,8 +124,8 @@ export const addDegree = async ({input: args}, context) => {
     const params = {
         TableName: process.env.MarketPlaceDB,
         Item: {
-            objectId: `degree-${uuid.v1()}`,
-            objectName: "degree",
+            pk: `degree-${uuid.v1()}`,
+            sk: "degree",
             degreeName: args.degreeName,
             courses: args.courses
         }
