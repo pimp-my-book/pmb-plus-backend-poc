@@ -2,7 +2,7 @@ Resources:
   MarketPlaceDB:
     Type: AWS::DynamoDB::Table
     Properties:
-      TableName: ${self:custom.MarketPlaceDBII}
+      TableName: ${self:custom.MarketPlaceDB}
       AttributeDefinitions:
         - AttributeName: pk
           AttributeType: S
