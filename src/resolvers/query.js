@@ -7,16 +7,18 @@ export const hello = (args, context) => {
 export const getBooksByVendor = async (args, context) =>  {
   const params = {
       TableName: process.env.MarketPlaceDB,
-     KeyConditionExpression: "vendor = :vendor",
+     KeyConditionExpression: "pk = :pk",
      ExpressionAttributeValues: {
-         ":vendor": args.vendor
+         ":pk": args.vendor
      }
   }
 
   try {
       const result = await dynamoDBLib.call("query", params);
-      if (result.Item){
-          return result.Item;
+      console.log(result)
+      if (result.Items){
+          return result.Items;
+
       } else {
           return "You have no products"
       }

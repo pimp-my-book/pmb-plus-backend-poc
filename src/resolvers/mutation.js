@@ -15,6 +15,7 @@ export const addBook = async ({input: args}, context) => {
             author: args.author,
             ISBN: args.ISBN,
             data: args.title,
+            productName: args.title,
             productDescription: args.productDescription,
             dateUploaded: Date.now(),
             price: args.price,
