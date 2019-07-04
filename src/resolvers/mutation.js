@@ -3,6 +3,7 @@ import * as dynamoDBlib from "../../libs/dynamodb-lib";
 import uuid from "uuid";
 import aws from "aws-sdk";
 import XLSX from "xlsx";
+import fs from "fs";
 
 //ADD BOOK
 export const addBook = async ({input: args}, context) => {
@@ -62,7 +63,8 @@ export const addBook = async ({input: args}, context) => {
 export const addBooks = async (args, context) => {
     const s3 = new aws.S3({
         signatureVersion: 'v4',
-        region: 'us-east-1'
+        region: 'us-east-1',
+        apiVersion: '2006-03-01'
     });
 
     const s3Params = {
@@ -79,6 +81,19 @@ export const addBooks = async (args, context) => {
     
     console.log(signedRequest)
 
+    const fileStream = fs.createReadStream(`temp/${args.fileName}`)
+    const buffers = [];
+
+    fileStream.on('data', (data) =>{
+        buffers.push(data);
+    });
+
+    fileStream.on('end', () =>{
+        const buffer = Buffer.concat(buffers);
+        const wb = XLSX.read(buffer);
+        console.log(wb);
+    })
+    
     /*
       { SheetNames: [ 'Sheet1' ],
   Sheets: { Sheet1: { A1: [Object], B1: [Object], '!ref': 'A1:B1' } }
