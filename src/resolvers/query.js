@@ -7,13 +7,14 @@ export const hello = (args, context) => {
 export const getBooksByVendor = async (args, context) =>  {
   const params = {
       TableName: process.env.MarketPlaceDB,
-      Key: {
-          vendor: args.vendor
-      }
+     KeyConditionExpression: "vendor = :vendor",
+     ExpressionAttributeValues: {
+         ":vendor": args.vendor
+     }
   }
 
   try {
-      const result = await dynamoDBLib.call("get", params);
+      const result = await dynamoDBLib.call("query", params);
       if (result.Item){
           return result.Item;
       } else {
