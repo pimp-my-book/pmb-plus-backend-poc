@@ -5,5 +5,21 @@ export const hello = (args, context) => {
 }
 
 export const getBooksByVendor = async (args, context) =>  {
-  
+  const params = {
+      TableName: process.env.MarketPlaceDB,
+      Key: {
+          vendor: args.vendor
+      }
+  }
+
+  try {
+      const result = await dynamoDBLib.call("get", params);
+      if (result.Item){
+          return result.Item;
+      } else {
+          return "You have no products"
+      }
+  } catch (e){
+      return e; 
+  }
 }
