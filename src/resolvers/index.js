@@ -1,9 +1,10 @@
-import {hello} from "./query";
-import {addUniversity, addDegree, addCourse, addBook,addBooks} from "./mutation";
+import {hello, getBooksByVendor} from "./query";
+import {addUniversity, addDegree, addCourse, addBook,addBooks, getBooksByVendor} from "./mutation";
 
 export const resolvers = {
     Query: {
-        hello: (root, args, context) => hello(args, context)
+        hello: (root, args, context) => hello(args, context),
+        getBooksByVendor: (root, args, context) => getBooksByVendor(args, context)
     },
     Mutation: {
         addUniversity: (root, {input: args}, context) => addUniversity({input: args}, context),
