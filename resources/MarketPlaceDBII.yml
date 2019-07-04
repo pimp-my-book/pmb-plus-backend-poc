@@ -2,31 +2,30 @@ Resources:
   MarketPlaceDB:
     Type: AWS::DynamoDB::Table
     Properties:
-      TableName: ${self:custom.MarketPlaceDB}
+      TableName: ${self:custom.MarketPlaceDBII}
       AttributeDefinitions:
-        - AttributeName: objectId
+        - AttributeName: pk
           AttributeType: S
-        - AttributeName: objectName
+        - AttributeName: sk
           AttributeType: S
-        - AttributeName: productType
+        - AttributeName: data
           AttributeType: S
-        - AttributeName: orderDate
-          AttributeType: S
+        
 
       KeySchema:
-        - AttributeName: objectId
+        - AttributeName: pk
           KeyType: HASH
-        - AttributeName: objectName
+        - AttributeName: sk
           KeyType: RANGE
       GlobalSecondaryIndexes:
-        - IndexName: GSI
+        - IndexName: GSI_1
           KeySchema:
-            - AttributeName: productType
+            - AttributeName: sk
               KeyType: HASH
-            - AttributeName: orderDate
+            - AttributeName: data
               KeyType: RANGE
           Projection:
-            ProjectionType: "KEYS_ONLY"
+            ProjectionType: "ALL"
           ProvisionedThroughput:
             ReadCapacityUnits: ${self:custom.tableThroughput}
             WriteCapacityUnits: ${self:custom.tableThroughput}
