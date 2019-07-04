@@ -14,7 +14,7 @@ export const addBook = async ({input: args}, context) => {
             sk: `book-${uuid.v1()}`,
             author: args.author,
             ISBN: args.ISBN,
-            productName: args.title,
+            data: args.title,
             productDescription: args.productDescription,
             dateUploaded: Date.now(),
             price: args.price,
@@ -95,7 +95,7 @@ export const addUniversity = async ({input: args}, context) => {
             pk: `uni-${uuid.v1()}`,
             sk: "university",
             name: args.name,
-            shortName: args.shortName,
+            data: args.shortName,
             degrees: args.degrees, 
             courses: args.courses
         }
@@ -126,7 +126,7 @@ export const addDegree = async ({input: args}, context) => {
         Item: {
             pk: `degree-${uuid.v1()}`,
             sk: "degree",
-            degreeName: args.degreeName,
+            data: args.degreeName,
             courses: args.courses
         }
 
@@ -151,10 +151,10 @@ export const addCourse = async ({input: args}, context) => {
     const params = {
         TableName: process.env.MarketPlaceDB,
         Item: {
-            objectId: `course-${uuid.v1()}`,
-            objectName: "course",
+            pk: `course-${uuid.v1()}`,
+            sk: "course",
             name: args.name,
-            shortName: args.shortName,
+            data: args.shortName,
             degrees: args.degrees
         }
 
