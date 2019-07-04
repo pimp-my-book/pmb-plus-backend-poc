@@ -39,7 +39,6 @@ Add Book input
 """
 input addBookInput {
     
-    productName: String!
     productDescription: String!
     
     price: String!
