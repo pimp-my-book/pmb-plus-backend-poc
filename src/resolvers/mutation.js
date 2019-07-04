@@ -79,32 +79,7 @@ export const addBooks = async (args, context) => {
     const signedRequest = await s3.getSignedUrl('putObject', s3Params);
     const url = `https://${s3Params.Bucket}.s3.amazonaws.com/${s3Params.Key}`
     
-    console.log(signedRequest)
-
-    const fileStream = fs.createReadStream(`temp/${args.fileName}`)
-    const buffers = [];
-
-    fileStream.on('data', (data) =>{
-        buffers.push(data);
-    });
-
-    fileStream.on('end', () =>{
-        const buffer = Buffer.concat(buffers);
-        const wb = XLSX.read(buffer);
-        console.log(wb);
-    })
-    
-    /*
-      { SheetNames: [ 'Sheet1' ],
-  Sheets: { Sheet1: { A1: [Object], B1: [Object], '!ref': 'A1:B1' } }
-}
-    */
-    //const books = XLSX.utils.sheet_to_json(url);
-    //const books = XLSX.read(url);
- 
-    
-    //console.log(books.Sheets.Sheet1)
-
+   
     return{
         signedRequest,
         url
