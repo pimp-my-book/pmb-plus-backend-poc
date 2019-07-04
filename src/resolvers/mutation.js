@@ -10,8 +10,8 @@ export const addBook = async ({input: args}, context) => {
     const params = {
         TableName: process.env.MarketPlaceDB,
         Item: {
-            objectId: `book-${uuid.v1()}`,
-            objectName: "book",
+            pk: args.vendor,
+            sk: `book-${uuid.v1()}`,
             author: args.author,
             ISBN: args.ISBN,
             productName: args.title,
